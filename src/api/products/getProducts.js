@@ -1,7 +1,7 @@
 import {
   fetchDataRequest,
   fetchDataSuccess,
-} from "../../store/dummyjson/actions";
+} from "../../store/products/actions";
 
 async function fetchProducts(dispatch) {
   dispatch(fetchDataRequest);

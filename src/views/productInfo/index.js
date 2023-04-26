@@ -1,6 +1,6 @@
-import Navigation from "./layout/Navigation";
-import Footer from "./layout/Footer";
-import Product from "../components/Product";
+import Navigation from "../layout/navigation";
+import Footer from "../layout/footer";
+import Product from "../../components/Product";
 
 function ProductInfo() {
   return (

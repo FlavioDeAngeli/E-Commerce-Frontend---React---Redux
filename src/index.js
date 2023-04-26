@@ -8,11 +8,11 @@ import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import App from "./App";
-import ProductInfo from "./views/ProductInfo";
-import Categories from "./views/Categories";
-import Checkout from "./views/Checkout";
-import Login from "./views/Login";
-import Signin from "./views/Signin";
+import ProductInfo from "./views/productInfo";
+import Categories from "./views/categories";
+import Checkout from "./views/cart";
+import Login from "./views/login";
+import Signin from "./views/signin";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

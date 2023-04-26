@@ -1,6 +1,6 @@
-import Navigation from "./layout/Navigation";
-import Footer from "./layout/Footer";
-import Cart from "../components/Cart";
+import Navigation from "../layout/navigation";
+import Footer from "../layout/footer";
+import Cart from "../../components/Cart";
 
 function Home() {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
-import Navigation from "./layout/Navigation";
-import Footer from "./layout/Footer";
-import Products from "../components/Products";
+import Navigation from "../layout/navigation";
+import Footer from "../layout/footer";
+import Products from "../../components/Products";
 
 function Home() {
   return (
