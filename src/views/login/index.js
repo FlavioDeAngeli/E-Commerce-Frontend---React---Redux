@@ -6,8 +6,6 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 
 function Login() {
-  // const [cookies, setCookies] = useCookies(["auth"]);
-  // const [loginOk, setLoginOk] = useState(null)
   const usernameRef = useRef();
   const passwordRef = useRef();
   const dispatch = useDispatch();
@@ -17,33 +15,9 @@ function Login() {
     const username = usernameRef.current.value;
     const password = passwordRef.current.value;
     const user = await fetchAuth({ username, password });
-    // console.log(user);
     HandleLogin(user, dispatch);
     navigate("/");
-    // if (token) {
-    // setCookies("auth", true);
-    // }
   };
-  // const addUser = () => {
-  //   fetch("https://dummyjson.com/users/add", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify({
-  //       firstName: "Carlo",
-  //       lastName: "Amore",
-  //       age: 34,
-  //       /* other user data */
-  //     }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then(console.log);
-  // };
-
-  // const getUser = () => {
-  //   fetch("https://dummyjson.com/users/101")
-  //     .then((res) => res.json())
-  //     .then(console.log);
-  // };
 
   return (
     <div className="m-4">

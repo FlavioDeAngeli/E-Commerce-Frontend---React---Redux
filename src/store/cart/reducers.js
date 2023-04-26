@@ -1,14 +1,22 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from "./actions";
+import {
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+  DELETE_FROM_CART,
+  CLEAR_CART,
+} from "./actions";
 
 const initialState = {
   cart: [],
 };
 
 function cartReducer(state = initialState, action) {
+  const newProduct = action.payload;
+  let found;
+  let filteredCart;
+
   switch (action.type) {
     case ADD_TO_CART:
-      const newProduct = action.payload;
-      const found = state.cart.find((product) => product.id === newProduct.id);
+      found = state.cart.find((product) => product.id === newProduct.id);
       if (found) {
         found.quantity++;
         return {
@@ -23,13 +31,36 @@ function cartReducer(state = initialState, action) {
       }
 
     case REMOVE_FROM_CART:
-      const filteredCart = state.cart.filter(
-        (product) => product.id !== action.payload.id
+      found = state.cart.find((product) => product.id === newProduct.id);
+      filteredCart = state.cart.filter(
+        (product) => product.id !== newProduct.id
+      );
+      if (found.quantity === 1) {
+        return {
+          ...state,
+          cart: filteredCart,
+        };
+      } else {
+        found.quantity--;
+        return {
+          ...state,
+        };
+      }
+
+    case DELETE_FROM_CART:
+      filteredCart = state.cart.filter(
+        (product) => product.id !== newProduct.id
       );
       return {
-        ...state,
         cart: filteredCart,
       };
+
+    case CLEAR_CART:
+      return {
+        ...state,
+        cart: [],
+      };
+
     default:
       return state;
   }

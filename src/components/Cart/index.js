@@ -2,8 +2,16 @@ import { React, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { ListGroup, Button, Badge } from "react-bootstrap";
 import Item from "../Item/index";
-import { AddProduct, RemoveProduct } from "../../dispatch/cartDispatch";
+import {
+  AddProduct,
+  RemoveProduct,
+  DeleteProduct,
+  ClearProducts,
+} from "../../dispatch/cartDispatch";
 import { useDispatch } from "react-redux";
+import {} from "../../dispatch/cartDispatch";
+
+//TODO - render commponent on poduct.quantity update
 
 function Cart() {
   const products = useSelector((state) => state.cart.cart);
@@ -27,13 +35,24 @@ function Cart() {
               <Button onClick={(e) => RemoveProduct(e, product, dispatch)}>
                 -
               </Button>
-              <Badge bg="secondary" className="d-flex align-items-center">
+              <Badge bg="success" className="d-flex align-items-center">
                 {product.quantity}
               </Badge>
+              <Button
+                variant="danger"
+                onClick={(e) => DeleteProduct(e, product, dispatch)}
+              >
+                X
+              </Button>
             </div>
           );
         })}
       </ListGroup>
+      {products.length > 0 ? (
+        <Button variant="danger" onClick={(e) => ClearProducts(e, dispatch)}>
+          Clear Cart
+        </Button>
+      ) : null}
     </>
   );
 }

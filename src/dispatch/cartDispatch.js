@@ -1,4 +1,9 @@
-import { AddToCart, RemoveFromCart } from "../store/cart/actions";
+import {
+  AddToCart,
+  RemoveFromCart,
+  DeleteFromCart,
+  ClearCart,
+} from "../store/cart/actions";
 
 export function AddProduct(e, product, dispatch) {
   e.preventDefault();
@@ -8,4 +13,14 @@ export function AddProduct(e, product, dispatch) {
 export function RemoveProduct(e, product, dispatch) {
   e.preventDefault();
   dispatch(RemoveFromCart(product));
+}
+
+export function DeleteProduct(e, product, dispatch) {
+  e.preventDefault();
+  dispatch(DeleteFromCart(product));
+}
+
+export function ClearProducts(e, dispatch) {
+  e.preventDefault();
+  dispatch(ClearCart());
 }

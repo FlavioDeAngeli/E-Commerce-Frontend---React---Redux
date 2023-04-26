@@ -12,8 +12,6 @@ function App() {
   const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
-  console.log("app :", user);
-
   useEffect(() => {
     fetchProducts(dispatch);
   }, [dispatch]);

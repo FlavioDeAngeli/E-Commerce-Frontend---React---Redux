@@ -19,4 +19,22 @@ const fetchAddUser = async ({ firstname, lastname, username, password }) => {
   return data;
 };
 
+// TODO - NON FUNZIONA !!!VERIFICARE!!!
+
+// const fetchAddUser = function () {
+//   console.log("call fetch add user");
+//   fetch("https://dummyjson.com/users/add", {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify({
+//       firstName: "Muhammad",
+//       lastName: "Ovi",
+//       age: 250,
+//       /* other user data */
+//     }),
+//   })
+//     .then((res) => res.json())
+//     .then("aaa - ", console.log);
+// };
+
 export default fetchAddUser;
