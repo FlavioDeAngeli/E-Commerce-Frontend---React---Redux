@@ -28,7 +28,7 @@ function Navigation() {
           <Nav className="ms-auto">
             <Nav.Link href="/">Products</Nav.Link>
             <Nav.Link href="/categories">Categories</Nav.Link>
-            <Nav.Link href="/checkout">Cart</Nav.Link>
+            <Nav.Link href="/cart">Cart</Nav.Link>
             {loggedIn ? (
               <Nav.Link onClick={handleClick}>Logout</Nav.Link>
             ) : (

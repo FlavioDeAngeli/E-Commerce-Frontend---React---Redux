@@ -21,6 +21,7 @@ function cartReducer(state = initialState, action) {
         found.quantity++;
         return {
           ...state,
+          cart: [...state.cart], //necessary to rerender product.quantity component
         };
       } else {
         newProduct.quantity = 1;
@@ -44,6 +45,7 @@ function cartReducer(state = initialState, action) {
         found.quantity--;
         return {
           ...state,
+          cart: [...state.cart], //necessary to rerender product.quantity component
         };
       }
 

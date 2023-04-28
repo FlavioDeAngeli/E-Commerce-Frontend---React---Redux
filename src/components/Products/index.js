@@ -15,8 +15,8 @@ function Products() {
       <ListGroup className="mt-4">
         {products.map((product) => {
           return (
-            <div className="itemBox d-inline-flex me-5 mb-2">
-              <Item key={product.id} product={product}></Item>
+            <div key={product.id} className="itemBox d-inline-flex me-5 mb-2">
+              <Item product={product}></Item>
               <Button onClick={(e) => AddProduct(e, product, dispatch)}>
                 +
               </Button>
