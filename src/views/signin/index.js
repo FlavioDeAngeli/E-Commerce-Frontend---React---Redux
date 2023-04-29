@@ -1,17 +1,18 @@
 import { React, useRef } from "react";
 import { Form, Button } from "react-bootstrap";
-// import { useDispatch } from "react-redux";
-// import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 import fetchAddUser from "../../api/auth/signin";
-// import { HandleLogin } from "../../dispatch/userDispatch";
+import createToken from "../../api/auth/token";
+import { HandleLogin } from "../../dispatch/userDispatch";
 
 function Signin() {
   const firstnameRef = useRef();
   const lastnameRef = useRef();
   const usernameRef = useRef();
   const passwordRef = useRef();
-  // const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleClick = async () => {
     const firstname = firstnameRef.current.value;
@@ -24,9 +25,10 @@ function Signin() {
       username,
       password,
     });
-    console.log(user);
-    // HandleLogin(user, dispatch);
-    // navigate("/");
+
+    user.token = createToken();
+    HandleLogin(user, dispatch);
+    navigate("/");
   };
   return (
     <div className="m-4">
@@ -68,12 +70,7 @@ function Signin() {
         <Button href="/login" variant="primary">
           Login
         </Button>
-        <Button
-          className="ms-3"
-          variant="primary"
-          type="submit"
-          onClick={handleClick}
-        >
+        <Button className="ms-3" variant="primary" onClick={handleClick}>
           Signin
         </Button>
       </Form>
