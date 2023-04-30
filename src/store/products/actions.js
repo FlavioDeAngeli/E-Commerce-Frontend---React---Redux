@@ -1,11 +1,11 @@
-export const FETCH_DATA_REQUEST = "FETCH_DATA_REQUEST";
-export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
+export const FETCH_PRODUCTS_REQUEST = "FETCH_PRODUCTS_REQUEST";
+export const FETCH_PRODUCTS_SUCCESS = "FETCH_PRODUCTS_SUCCESS";
 
-export const fetchDataRequest = () => ({
-  type: FETCH_DATA_REQUEST,
+export const fetchProductsRequest = () => ({
+  type: FETCH_PRODUCTS_REQUEST,
 });
 
-export const fetchDataSuccess = (data) => ({
-  type: FETCH_DATA_SUCCESS,
+export const fetchProductsSuccess = (data) => ({
+  type: FETCH_PRODUCTS_SUCCESS,
   payload: data,
 });

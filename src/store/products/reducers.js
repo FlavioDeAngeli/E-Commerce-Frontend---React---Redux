@@ -1,4 +1,4 @@
-import { FETCH_DATA_REQUEST, FETCH_DATA_SUCCESS } from "./actions";
+import { FETCH_PRODUCTS_REQUEST, FETCH_PRODUCTS_SUCCESS } from "./actions";
 
 const initialState = {
   products: [],
@@ -8,12 +8,12 @@ const initialState = {
 
 function productsReducer(state = initialState, action) {
   switch (action.type) {
-    case FETCH_DATA_REQUEST:
+    case FETCH_PRODUCTS_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case FETCH_DATA_SUCCESS:
+    case FETCH_PRODUCTS_SUCCESS:
       return {
         ...state,
         loading: false,

@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import fetchProducts from "./api/products/getProducts";
+import fetchCategories from "./api/categories/getCategories";
 import "./App.css";
 import Home from "./views/home";
-
-//TODO - Fare la fetch possibilmente dopo il login (nella home?/in products?)
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     fetchProducts(dispatch);
+    fetchCategories(dispatch);
   }, [dispatch]);
 
   return (

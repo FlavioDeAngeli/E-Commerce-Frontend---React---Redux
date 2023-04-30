@@ -1,14 +1,15 @@
+import { API_BASE_URL } from "../../config";
 import {
-  fetchDataRequest,
-  fetchDataSuccess,
+  fetchProductsRequest,
+  fetchProductsSuccess,
 } from "../../store/products/actions";
 
 async function fetchProducts(dispatch) {
-  dispatch(fetchDataRequest);
+  dispatch(fetchProductsRequest);
   try {
-    const data = await fetch("https://dummyjson.com/products?limit=10");
+    const data = await fetch(`${API_BASE_URL}products?limit=10`);
     const json = await data.json();
-    dispatch(fetchDataSuccess(json.products));
+    dispatch(fetchProductsSuccess(json.products));
   } catch (error) {
     console.log(error);
   }
