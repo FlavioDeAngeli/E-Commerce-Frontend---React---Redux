@@ -8,8 +8,9 @@ import { Link } from "react-router-dom";
 
 function Product() {
   const currentProduct = useParams();
-  const product = useSelector(
-    (state) => state.product.products[currentProduct.id - 1]
+  const productsList = useSelector((state) => state.product.products);
+  const product = productsList.find(
+    ({ id }) => id === Number(currentProduct.id)
   );
 
   return (

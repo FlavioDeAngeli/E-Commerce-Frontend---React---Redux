@@ -14,6 +14,11 @@ function Cart() {
   const products = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
 
+  let total = 0;
+  products.forEach((product) => {
+    total = total + product.price * product.quantity;
+  });
+
   return (
     <>
       <h1 className="mt-3 ms-3">My Cart:</h1>
@@ -42,7 +47,7 @@ function Cart() {
         })}
       </ListGroup>
       {products.length > 0 ? (
-        <Container className="d-flex flex-row-reverse me-5 mt-4">
+        <Container className="d-flex flex-row-reverse p-0 me-5 mt-4">
           <Button
             className="justify-self-end"
             variant="danger"
@@ -50,6 +55,7 @@ function Cart() {
           >
             Clear Cart
           </Button>
+          <Button>Total: {total}$ </Button>
         </Container>
       ) : null}
     </>
