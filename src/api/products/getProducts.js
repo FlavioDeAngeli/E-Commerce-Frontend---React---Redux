@@ -4,10 +4,10 @@ import {
   fetchProductsSuccess,
 } from "../../store/products/actions";
 
-async function fetchProducts(dispatch) {
+async function fetchProducts(dispatch, request, options) {
   dispatch(fetchProductsRequest);
   try {
-    const data = await fetch(`${API_BASE_URL}products?limit=10`);
+    const data = await fetch(`${API_BASE_URL}${request}${options}`);
     const json = await data.json();
     dispatch(fetchProductsSuccess(json.products));
   } catch (error) {

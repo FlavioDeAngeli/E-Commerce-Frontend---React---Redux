@@ -10,6 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
 import ProductInfo from "./views/productInfo";
 import Categories from "./views/categories";
+import CategoryProducts from "./views/categoryProducts";
 import Cart from "./views/cart";
 import Login from "./views/login";
 import Signin from "./views/signin";
@@ -24,6 +25,10 @@ root.render(
             <Route path="/" element={<App />} />
             <Route path="/product/:id" element={<ProductInfo />} />
             <Route path="/categories" element={<Categories />} />
+            <Route
+              path="/categories/:category"
+              element={<CategoryProducts />}
+            />
             <Route path="/cart" element={<Cart />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signin" element={<Signin />} />

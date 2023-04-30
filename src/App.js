@@ -7,9 +7,11 @@ import Home from "./views/home";
 
 function App() {
   const dispatch = useDispatch();
+  const request = "products";
+  const options = "?limit=10";
 
   useEffect(() => {
-    fetchProducts(dispatch);
+    fetchProducts(dispatch, request, options);
     fetchCategories(dispatch);
   }, [dispatch]);
 

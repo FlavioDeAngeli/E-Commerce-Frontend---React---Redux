@@ -2,11 +2,19 @@ import React from "react";
 import Navigation from "../layout/navigation";
 import Footer from "../layout/footer";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import { Container, Card, Button } from "react-bootstrap";
 import { CATEGORY_IMAGES } from "../../resources";
 
 function Categories() {
   const categories = useSelector((state) => state.categories.categories);
+  let navigate = useNavigate();
+
+  function handleClick(e, category) {
+    e.preventDefault();
+    navigate(`/categories/${category}`);
+  }
+
   return (
     <div className="Categories">
       <Navigation />
@@ -27,7 +35,11 @@ function Categories() {
                 src={`${CATEGORY_IMAGES[category.replace("-", "")]}`}
               />
               <Card.Body className="text-center align-bottom">
-                <Button variant="primary" size="sm">
+                <Button
+                  variant="primary"
+                  size="sm"
+                  onClick={(e) => handleClick(e, category)}
+                >
                   View Products
                 </Button>
               </Card.Body>

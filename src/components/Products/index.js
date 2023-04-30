@@ -11,7 +11,6 @@ function Products() {
 
   return (
     <>
-      <h1 className="mt-3 ms-3">Dummy JSON API call</h1>
       <ListGroup className="mt-4">
         {products.map((product) => {
           return (
