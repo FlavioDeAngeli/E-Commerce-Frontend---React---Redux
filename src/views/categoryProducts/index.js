@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 import { useDispatch } from "react-redux";
 import fetchProducts from "../../api/products/getProducts";
 import Products from "../../components/Products";
+import CategoriesList from "../categoriesList";
 
 function CategoryProducts() {
   const currentCategory = useParams();
@@ -24,6 +25,7 @@ function CategoryProducts() {
           currentCategory.category.slice(1)}
         :
       </h2>
+      <CategoriesList />
       <Products />
       <Footer />
     </div>
