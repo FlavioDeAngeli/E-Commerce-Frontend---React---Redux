@@ -11,7 +11,6 @@ function Searchbar() {
     e.preventDefault();
     const request = "products/search?q=";
     const input = searchRef.current.value.trim();
-    console.log();
 
     if (input.length > 2) {
       fetchProducts(dispatch, request, input);
@@ -30,6 +29,9 @@ function Searchbar() {
         />
         <Button className="ms-3" type="submit" onClick={(e) => handleSubmit(e)}>
           Ricerca
+        </Button>
+        <Button variant="danger" href="/">
+          X
         </Button>
       </Form.Group>
     </Form>
