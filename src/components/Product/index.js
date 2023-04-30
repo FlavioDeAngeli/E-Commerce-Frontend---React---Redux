@@ -1,17 +1,26 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { useSelector } from "react-redux";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import fetchProduct from "../../api/products/getProduct";
 
 function Product() {
   const currentProduct = useParams();
-  const productsList = useSelector((state) => state.product.products);
-  const product = productsList.find(
-    ({ id }) => id === Number(currentProduct.id)
-  );
+  const request = "products/";
+  const options = currentProduct.id;
+
+  const [product, setProduct] = useState({});
+
+  const getProduct = async (request, options) => {
+    const product = await fetchProduct(request, options);
+    setProduct(product);
+  };
+
+  useEffect(() => {
+    getProduct(request, options);
+  }, [request, options]);
 
   return (
     <Card className="mt-4 ms-4" style={{ width: "18rem" }}>

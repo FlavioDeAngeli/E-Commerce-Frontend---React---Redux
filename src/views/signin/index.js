@@ -30,6 +30,7 @@ function Signin() {
     HandleLogin(user, dispatch);
     navigate("/");
   };
+
   return (
     <div className="m-4">
       <h2 className="mb-4">Signin Page</h2>
