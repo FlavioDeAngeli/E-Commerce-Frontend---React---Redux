@@ -2,6 +2,7 @@ import { FETCH_PRODUCTS_REQUEST, FETCH_PRODUCTS_SUCCESS } from "./actions";
 
 const initialState = {
   products: [],
+  total: 100,
   loading: false,
   error: false,
 };
