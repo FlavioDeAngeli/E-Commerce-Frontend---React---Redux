@@ -1,6 +1,6 @@
 import { React } from "react";
 import { Card, Form } from "react-bootstrap";
-import LoginForm from "../../components/LoginForm";
+import LoginForm from "../../components/LoginForm/index.tsx";
 import HelperCard from "../../components/HelperCard";
 import Footer from "../layout/footer";
 import "./style.css";
