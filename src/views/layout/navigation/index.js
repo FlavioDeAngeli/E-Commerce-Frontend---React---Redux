@@ -31,7 +31,7 @@ function Navigation() {
               <Nav.Link onClick={(e) => handleClick(e)} href="/">
                 Logout
               </Nav.Link>
-              <Nav.Link className="ms-4">
+              <Nav.Link className="active ms-4">
                 {user.firstName}
                 <AiOutlineUser className="user-icon ms-2" />
               </Nav.Link>

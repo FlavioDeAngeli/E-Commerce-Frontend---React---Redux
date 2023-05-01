@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { Container, Badge } from "react-bootstrap";
+import "./style.css";
 
 function CategoriesList() {
   const categories = useSelector((state) => state.categories.categories);
@@ -13,12 +14,14 @@ function CategoriesList() {
   }
 
   return (
-    <Container className="CategoriesList col-12 m-0 d-flex overflow-auto">
+    // <div className="categoriesContainer">
+    <div className="CategoriesList d-flex overflow-scroll mb-4 pb-3">
+      {/* <div className="move move-left">left</div> */}
+      {/* <div className="move move-right">right</div> */}
       {categories.map((category) => {
         return (
           <Badge
-            bg="success"
-            className="m-1"
+            className="category-badge m-1"
             key={`badge-${category}`}
             onClick={(e) => handleClick(e, category)}
           >
@@ -26,7 +29,8 @@ function CategoriesList() {
           </Badge>
         );
       })}
-    </Container>
+    </div>
+    // </div>
   );
 }
 

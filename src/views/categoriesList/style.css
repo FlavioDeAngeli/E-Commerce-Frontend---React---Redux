@@ -1,0 +1,45 @@
+.category-badge {
+  background-color: #064c79 !important;
+  border-radius: 15px;
+  padding: 1rem;
+}
+
+.CategoriesList::-webkit-scrollbar {
+  height: 0.5rem;
+  width: 0;
+}
+
+.CategoriesList::-webkit-scrollbar-thumb {
+  background-color: #064c79;
+  border-radius: 20px;
+}
+
+.category-badge:hover {
+  background-color: #09649f !important;
+  cursor: pointer;
+}
+
+/* .move {
+  background-color: aqua;
+  width: 5rem;
+  height: 3.3rem;
+  z-index: 100;
+}
+
+.move-left {
+  position: absolute;
+  left: 2rem;
+}
+
+.move-right {
+  position: absolute;
+  right: 2rem;
+}
+
+.move-left:hover ~ .category-badge {
+  transform: translateX(-200px);
+}
+
+.move-right:hover ~ .category-badge {
+  background-color: crimson;
+} */
