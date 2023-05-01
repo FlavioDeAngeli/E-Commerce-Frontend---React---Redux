@@ -15,7 +15,7 @@ function Login() {
         </Card>
         <div className="Login mt-4">
           <LoginForm />
-          <HelperCard />
+          <HelperCard message={"login"} />
         </div>
       </div>
       <Footer />

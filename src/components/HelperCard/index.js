@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 
-function HelperCard() {
+function HelperCard({ message }) {
   return (
     <Card
       className="HelperCard text-center col-3 m-3"
@@ -13,12 +13,24 @@ function HelperCard() {
         <Card.Text className="mb-4">
           <strong>Login with sample User or Signin</strong>
         </Card.Text>
-        <Card.Text className="text-start m-2">
-          <strong className="me-2">Username:</strong> kminchelle
-        </Card.Text>
-        <Card.Text className="text-start m-2">
-          <strong className="me-2">Password:</strong> 0lelplR
-        </Card.Text>
+        {message === "login" && (
+          <>
+            <Card.Text className="text-start m-2">
+              <strong className="me-2">Username:</strong> kminchelle
+            </Card.Text>
+            <Card.Text className="text-start m-2">
+              <strong className="me-2">Password:</strong> 0lelplR
+            </Card.Text>
+          </>
+        )}
+        {message === "signin" && (
+          <>
+            <Card.Text className="text-start m-2">
+              This registration system is a sample, your data won't be stored or
+              shared with anyone.
+            </Card.Text>
+          </>
+        )}
       </Card.Body>
     </Card>
   );
