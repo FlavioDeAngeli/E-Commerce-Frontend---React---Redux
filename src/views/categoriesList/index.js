@@ -13,7 +13,7 @@ function CategoriesList() {
   }
 
   return (
-    <Container className="CategoriesList col-12 m-0 d-flex pb-3 overflow-auto">
+    <Container className="CategoriesList col-12 m-0 d-flex overflow-auto">
       {categories.map((category) => {
         return (
           <Badge

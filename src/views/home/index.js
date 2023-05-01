@@ -10,7 +10,6 @@ function Home({ skip, setSkip }) {
   return (
     <div className="Home">
       <Navigation />
-      <h2 className="mt-3 ms-3">Tutti i prodotti:</h2>
       <Searchbar />
       <Container fluid className="mainContent">
         <CategoriesList />

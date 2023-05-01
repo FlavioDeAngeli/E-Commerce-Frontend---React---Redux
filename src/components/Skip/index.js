@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 
 import { SKIP_STEP, TOTAL_PRODUCTS, API_FETCH_LIMIT } from "../../config";
 
@@ -21,7 +22,7 @@ function Skip({ skip, setSkip }) {
     <div className="d-flex justify-content-center">
       {skip > 0 && (
         <Button onClick={(e) => skipBackward(e, skip, setSkip)} className="m-1">
-          -
+          <GrFormPreviousLink />
         </Button>
       )}
 
@@ -31,7 +32,7 @@ function Skip({ skip, setSkip }) {
             onClick={(e) => skipForward(e, skip, setSkip)}
             className="m-1"
           >
-            +
+            <GrFormNextLink />
           </Button>
         )}
     </div>

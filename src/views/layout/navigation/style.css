@@ -1,0 +1,14 @@
+.Navigation {
+  background-color: #09649f;
+  padding: 1rem 2rem 1rem 2rem;
+}
+
+.user {
+  color: #fff;
+}
+
+.user-icon {
+  text-align: center;
+  font-size: 1.5rem;
+  padding-bottom: 0.2rem;
+}
