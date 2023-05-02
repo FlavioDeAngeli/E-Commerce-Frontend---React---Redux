@@ -7,7 +7,8 @@
   color: #fff;
 }
 
-.user-icon {
+.user-icon,
+.cart-icon {
   text-align: center;
   font-size: 1.5rem;
   padding-bottom: 0.2rem;

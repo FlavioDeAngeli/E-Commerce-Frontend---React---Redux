@@ -6,12 +6,19 @@ import { ClearProducts } from "../../../dispatch/cartDispatch";
 import { HandleLogout } from "../../../dispatch/userDispatch";
 import { Navigate } from "react-router";
 import { AiOutlineUser } from "react-icons/ai";
+import { BsCart2 } from "react-icons/bs";
 import "./style.css";
 
 function Navigation() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
+  const cartProducts = useSelector((state) => state.cart.cart);
   const loggedIn = user.token;
+
+  let cartQuantity = 0;
+  cartProducts?.forEach((product) => {
+    cartQuantity = cartQuantity + product.quantity;
+  });
 
   const handleClick = (e) => {
     ClearProducts(e, dispatch);
@@ -25,7 +32,10 @@ function Navigation() {
         <Nav className="ms-auto">
           <Nav.Link href="/">Products</Nav.Link>
           <Nav.Link href="/categories">Categories</Nav.Link>
-          <Nav.Link href="/cart">Cart</Nav.Link>
+          <Nav.Link href="/cart">
+            Cart <BsCart2 className="cart-icon" />
+            {cartQuantity > 0 && cartQuantity}
+          </Nav.Link>
           {loggedIn ? (
             <>
               <Nav.Link onClick={(e) => handleClick(e)} href="/">
