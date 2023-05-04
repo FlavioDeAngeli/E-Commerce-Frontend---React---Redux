@@ -1,12 +1,13 @@
 import React from "react";
-import { useRef } from "react";
+import { forwardRef } from "react";
 import { Form } from "react-bootstrap";
 import { InputStringProps } from "./index.types";
 
-const InputString = (props: InputStringProps) => {
+const InputString = forwardRef<HTMLInputElement>(function (
+  props: InputStringProps,
+  ref
+) {
   const { id, placeholder, max } = props;
-
-  const ref = useRef<HTMLInputElement>(null);
 
   const handleOnBlur = () => {
     // console.log("blur del campo ", id);
@@ -25,6 +26,6 @@ const InputString = (props: InputStringProps) => {
       />
     </Form.Group>
   );
-};
+});
 
 export default InputString;

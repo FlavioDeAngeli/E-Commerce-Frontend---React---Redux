@@ -14,7 +14,6 @@ function LoginForm() {
   const passwordRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(usernameRef);
 
   const showErrorMessage = (errorMessage) => {
     setError(errorMessage);
@@ -50,6 +49,13 @@ function LoginForm() {
           id={"username"}
           placeholder={"Enter your username"}
           max={50}
+          ref={usernameRef}
+        />
+        <InputString
+          id={"password"}
+          placeholder={"Enter your password"}
+          max={50}
+          ref={passwordRef}
         />
         {/* <Form.Group className="mb-3" controlId="username">
           <Form.Control
