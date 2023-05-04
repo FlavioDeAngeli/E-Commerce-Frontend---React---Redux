@@ -10,7 +10,7 @@ function Products() {
   const dispatch = useDispatch();
 
   return (
-    <ListGroup>
+    <ListGroup className="col-6">
       {products.map((product) => {
         return (
           <div key={product.id} className="itemBox d-inline-flex me-5 mb-2">
