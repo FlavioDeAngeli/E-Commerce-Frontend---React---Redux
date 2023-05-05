@@ -15,12 +15,18 @@ function HelperCard({ message }) {
         </Card.Text>
         {message === "login" && (
           <>
-            <Card.Text className="text-start m-2">
-              <strong className="me-2">Username:</strong> kminchelle
-            </Card.Text>
-            <Card.Text className="text-start m-2">
-              <strong className="me-2">Password:</strong> 0lelplR
-            </Card.Text>
+            <div className="d-flex text-start m-2">
+              <div className="col-5">
+                <strong>Username:</strong>
+              </div>
+              kminchelle
+            </div>
+            <div className="d-flex text-start m-2">
+              <div className="col-5">
+                <strong> Password:</strong>
+              </div>
+              0lelplR
+            </div>
           </>
         )}
         {message === "signin" && (
