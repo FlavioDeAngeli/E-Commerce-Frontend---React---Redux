@@ -1,4 +1,5 @@
 import Navbar from "react-bootstrap/Navbar";
+import "./style.css";
 
 function Footer() {
   return (
@@ -7,7 +8,7 @@ function Footer() {
         bg="secondary"
         variant="dark"
         sticky="bottom"
-        className="text-center mt-5"
+        className="Footer text-center p-0"
       >
         <Navbar.Text className="col-12" href="#home">
           © Flavio De Angeli - 2023
