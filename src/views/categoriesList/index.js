@@ -15,13 +15,13 @@ function CategoriesList() {
 
   return (
     // <div className="categoriesContainer">
-    <div className="CategoriesList d-flex overflow-scroll mb-4 pb-3">
+    <div className="CategoriesList d-flex flex-column ms-2 me-4">
       {/* <div className="move move-left">left</div> */}
       {/* <div className="move move-right">right</div> */}
       {categories.map((category) => {
         return (
           <Badge
-            className="category-badge m-1"
+            className="category-badge ms-1 me-1 mb-2 p-2"
             key={`badge-${category}`}
             onClick={(e) => handleClick(e, category)}
           >

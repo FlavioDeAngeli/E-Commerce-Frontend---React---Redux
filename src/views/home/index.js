@@ -11,7 +11,7 @@ function Home({ skip, setSkip }) {
     <div className="Home">
       <Navigation />
       <Searchbar />
-      <Container fluid className="mainContent">
+      <Container fluid className="mainContent d-flex">
         <CategoriesList />
         <Products />
       </Container>

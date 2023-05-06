@@ -1,10 +1,14 @@
+.categoriesList {
+  float: left;
+}
+
 .category-badge {
   background-color: #064c79 !important;
   border-radius: 15px;
-  padding: 1rem;
+  /* padding: 1rem; */
 }
 
-.CategoriesList::-webkit-scrollbar {
+/* .CategoriesList::-webkit-scrollbar {
   height: 0.5rem;
   width: 0;
 }
@@ -12,7 +16,7 @@
 .CategoriesList::-webkit-scrollbar-thumb {
   background-color: #064c79;
   border-radius: 20px;
-}
+} */
 
 .category-badge:hover {
   background-color: #09649f !important;
