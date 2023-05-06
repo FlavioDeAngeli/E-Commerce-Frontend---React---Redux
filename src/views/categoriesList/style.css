@@ -5,7 +5,7 @@
 .category-badge {
   background-color: #064c79 !important;
   border-radius: 15px;
-  /* padding: 1rem; */
+  padding: 0.7rem;
 }
 
 /* .CategoriesList::-webkit-scrollbar {

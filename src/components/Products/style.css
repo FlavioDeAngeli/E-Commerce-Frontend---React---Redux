@@ -1,0 +1,19 @@
+.Products {
+  float: right;
+  width: 100%;
+}
+
+.add-button {
+  background-color: #064c79;
+  border-color: #09649f;
+  color: #fff;
+  padding: 0.5rem;
+}
+
+.add-button:hover {
+  background-color: #09649f;
+}
+
+.add-button svg {
+  font-size: 1.2rem;
+}

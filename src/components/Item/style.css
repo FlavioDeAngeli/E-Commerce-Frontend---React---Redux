@@ -1,0 +1,26 @@
+.Item {
+  border: 1px solid #09649f;
+  border-radius: 10px !important;
+  /* width: 80vw; */
+}
+
+.title {
+  color: #064c79;
+  font-weight: 500;
+}
+
+.description {
+  /* max-width: 50%; */
+  text-overflow: ellipsis; /* enables ellipsis */
+  white-space: nowrap; /* keeps the text in a single line */
+  overflow: hidden; /* keeps the element from overflowing its parent */
+}
+
+.price {
+  height: 100%;
+  background-color: #09649f;
+  color: #fff;
+  font-weight: 500;
+  border: 1px solid #09649f;
+  border-radius: 0 10px 10px 0 !important;
+}

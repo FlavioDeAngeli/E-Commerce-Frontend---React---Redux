@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { ListGroup, Button, Badge, Container } from "react-bootstrap";
 import Item from "../Item/index";
+import { BsCart2 } from "react-icons/bs";
 import {
   AddProduct,
   RemoveProduct,
@@ -14,6 +15,11 @@ function Cart() {
   const products = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
 
+  let cartQuantity = 0;
+  products?.forEach((product) => {
+    cartQuantity = cartQuantity + product.quantity;
+  });
+
   let total = 0;
   products.forEach((product) => {
     total = total + product.price * product.quantity;
@@ -21,8 +27,16 @@ function Cart() {
 
   return (
     <>
-      <h1 className="mt-3 ms-3">My Cart:</h1>
-      <ListGroup className="mt-4">
+      <div className="d-flex justify-content-between">
+        <h3 className="mt-3 ms-3 ps-2">
+          Esegui il checkout oppure acquista altri prodotti:
+        </h3>
+        <div>
+          <BsCart2 className="cart-icon" /> {cartQuantity > 0 && cartQuantity}
+        </div>
+      </div>
+
+      <ListGroup className="m-4 ps-2">
         {products.map((product) => {
           return (
             <div key={product.id} className="itemBox d-inline-flex me-5 mb-2">

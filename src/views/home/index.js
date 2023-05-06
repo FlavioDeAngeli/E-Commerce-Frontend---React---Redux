@@ -6,6 +6,7 @@ import Skip from "../../components/Skip";
 import Searchbar from "../../components/Searchbar";
 import CategoriesList from "../categoriesList";
 import { Container } from "react-bootstrap";
+
 function Home({ skip, setSkip }) {
   return (
     <div className="Home">

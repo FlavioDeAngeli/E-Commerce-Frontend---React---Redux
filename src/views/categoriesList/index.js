@@ -21,7 +21,7 @@ function CategoriesList() {
       {categories.map((category) => {
         return (
           <Badge
-            className="category-badge ms-1 me-1 mb-2 p-2"
+            className="category-badge ms-1 me-1 mb-2"
             key={`badge-${category}`}
             onClick={(e) => handleClick(e, category)}
           >
