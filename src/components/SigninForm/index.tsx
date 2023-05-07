@@ -8,6 +8,8 @@ import createToken from "../../api/auth/token";
 import { HandleLogin } from "../../dispatch/userDispatch";
 import InputString from "../Input/InputString/index.tsx";
 
+//TODO - FIX PASSWORD INPUT (TO BE HIDDEN)
+
 function SigninForm() {
   const firstnameRef = useRef<HTMLInputElement>(null);
   const lastnameRef = useRef<HTMLInputElement>(null);

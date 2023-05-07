@@ -1,5 +1,7 @@
 import { React, useEffect } from "react";
+import { Container } from "react-bootstrap";
 import Navigation from "../layout/navigation";
+import Searchbar from "../../components/Searchbar";
 import Footer from "../layout/footer";
 import { useParams } from "react-router";
 import { useDispatch } from "react-redux";
@@ -20,13 +22,11 @@ function CategoryProducts() {
   return (
     <div className="CategoryProducts">
       <Navigation />
-      <h2 className="mt-3 ms-3">
-        {currentCategory.category.charAt(0).toUpperCase() +
-          currentCategory.category.slice(1)}
-        :
-      </h2>
-      <CategoriesList />
-      <Products />
+      <Searchbar />
+      <Container fluid className="mainContent d-flex">
+        <CategoriesList />
+        <Products />
+      </Container>
       <Footer />
     </div>
   );
