@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { ListGroup, Button } from "react-bootstrap";
 import ProductModal from "../ProductModal";
@@ -11,6 +11,10 @@ import "./style.css";
 function Products() {
   const products = useSelector((state) => state.product.products);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    window.location.href = "#top";
+  });
 
   const [modalShow, setModalShow] = useState(false);
 

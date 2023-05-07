@@ -17,6 +17,7 @@ function CategoryProducts() {
 
   useEffect(() => {
     fetchProducts(dispatch, request, options);
+    window.location.href = "#top";
   }, [dispatch, request, options]);
 
   return (

@@ -5,10 +5,13 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { Container, Card, Button } from "react-bootstrap";
 import { CATEGORY_IMAGES } from "../../resources";
+import "./style.css";
 
 function Categories() {
   const categories = useSelector((state) => state.categories.categories);
   let navigate = useNavigate();
+
+  
 
   function handleClick(e, category) {
     e.preventDefault();
@@ -31,6 +34,7 @@ function Categories() {
               </Card.Body>
 
               <Card.Img
+                className="card-image"
                 variant="top"
                 src={`${CATEGORY_IMAGES[category.replace("-", "")]}`}
               />
