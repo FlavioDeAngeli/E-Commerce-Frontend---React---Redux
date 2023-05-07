@@ -8,8 +8,6 @@ import createToken from "../../api/auth/token";
 import { HandleLogin } from "../../dispatch/userDispatch";
 import InputString from "../Input/InputString/index.tsx";
 
-//TODO - FIX PASSWORD INPUT (TO BE HIDDEN)
-
 function SigninForm() {
   const firstnameRef = useRef<HTMLInputElement>(null);
   const lastnameRef = useRef<HTMLInputElement>(null);
@@ -42,25 +40,30 @@ function SigninForm() {
         <Card.Title className="text-center mb-4">Signin</Card.Title>
         <InputString
           id={"firstname"}
+          type="text"
           placeholder={"Enter your firstname"}
           max={50}
           ref={firstnameRef}
         />
         <InputString
           id={"lastname"}
+          type="text"
           placeholder={"Enter your lastname"}
           max={50}
           ref={lastnameRef}
         />
         <InputString
           id={"email"}
+          type="email"
           placeholder={"Enter your email"}
-          max={50}
+          min={6}
           ref={emailRef}
         />
         <InputString
           id={"password"}
+          type="password"
           placeholder={"Enter your password"}
+          min={6}
           max={50}
           ref={passwordRef}
         />

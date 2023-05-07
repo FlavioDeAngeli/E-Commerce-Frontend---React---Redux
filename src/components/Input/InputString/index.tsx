@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 import { forwardRef } from "react";
 import { Form } from "react-bootstrap";
 import { InputStringProps } from "./index.types";
@@ -8,7 +8,7 @@ const InputString = forwardRef<HTMLInputElement>(function (
   props: InputStringProps,
   ref
 ) {
-  const { id, placeholder, max } = props;
+  const { id, type, placeholder, min, max } = props;
 
   const [validation, setValidation] = useState<string>("");
   const [validationMessage, setValidationMessage] = useState<string>("");
@@ -26,13 +26,12 @@ const InputString = forwardRef<HTMLInputElement>(function (
   };
 
   const handleOnBlur = () => {
-    // console.log("blur del campo ", id);
     const userInput = ref.current?.value;
 
     if (
       !userInput ||
       typeof userInput !== "string" ||
-      userInput.length === 0 ||
+      userInput.length < min ||
       userInput.length > max
     ) {
       setValidation("error");
@@ -45,33 +44,34 @@ const InputString = forwardRef<HTMLInputElement>(function (
 
   return (
     <>
-      <Form.Group className="mb-3">
-        <div className="d-flex">
-          <Form.Control
-            className={validation}
-            id={id}
-            type="text"
-            placeholder={placeholder}
-            max={max}
-            ref={ref}
-            onBlur={() => handleOnBlur()}
-            onFocus={() => handleOnFocus()}
-          />
-          <div
-            className={
-              validation === "valid"
-                ? `checkmark d-flex align-items-center`
-                : `d-flex align-items-center`
-            }
-          >
-            {validationMessage}
-          </div>
+      {/* <Form.Group className="mb-3"> */}
+      <div className="d-flex">
+        <Form.Control
+          className={validation}
+          id={id}
+          type={type}
+          placeholder={placeholder}
+          min={min}
+          max={max}
+          ref={ref}
+          onBlur={() => handleOnBlur()}
+          onFocus={() => handleOnFocus()}
+        />
+        <div
+          className={
+            validation === "valid"
+              ? `checkmark d-flex align-items-center`
+              : `d-flex align-items-center`
+          }
+        >
+          {validationMessage}
         </div>
+      </div>
 
-        <div id="error-message" className="lead mt-1">
-          {errorMessage}
-        </div>
-      </Form.Group>
+      <div id="error-message" className="lead mt-1">
+        {errorMessage}
+      </div>
+      {/* </Form.Group> */}
     </>
   );
 });

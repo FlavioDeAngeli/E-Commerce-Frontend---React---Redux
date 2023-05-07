@@ -47,14 +47,18 @@ function LoginForm() {
         {/* {error && <div className="error-message">{error}</div>} */}
         <InputString
           id={"username"}
+          type="text"
           placeholder={"Enter your username"}
+          min={3}
           max={50}
           ref={usernameRef}
         />
         <InputString
           id={"password"}
+          type="password"
           placeholder={"Enter your password"}
-          max={50}
+          min={6}
+          max={16}
           ref={passwordRef}
         />
         <div className="d-grid mt-4">
