@@ -22,7 +22,7 @@ function LoginForm() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // console.log("submit");
+    console.log("submit", ref);
 
     const username = usernameRef.current?.value;
     const password = passwordRef.current?.value;

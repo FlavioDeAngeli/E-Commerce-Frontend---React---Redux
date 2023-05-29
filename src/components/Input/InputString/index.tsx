@@ -1,13 +1,18 @@
-import React, { useState } from "react";
-import { forwardRef } from "react";
+import React, { useState, useRef } from "react";
+// import { forwardRef } from "react";
 import { Form } from "react-bootstrap";
 import { InputStringProps } from "./index.types";
 import "./style.css";
 
-const InputString = forwardRef<HTMLInputElement>(function (
-  props: InputStringProps,
-  ref
-) {
+// const InputString = forwardRef<HTMLInputElement>(function (
+//   props: InputStringProps,
+//   ref
+// ) {
+//   const { id, type, placeholder, min, max } = props;
+
+const InputString = (props: InputStringProps) => {
+  const ref = useRef<HTMLInputElement>(null);
+
   const { id, type, placeholder, min, max } = props;
 
   const [validation, setValidation] = useState<string>("");
@@ -84,6 +89,6 @@ const InputString = forwardRef<HTMLInputElement>(function (
       {/* </Form.Group> */}
     </>
   );
-});
+};
 
 export default InputString;
