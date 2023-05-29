@@ -15,7 +15,6 @@ const InputString = forwardRef<HTMLInputElement>(function (
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   const handleOnFocus = () => {
-    console.log(validation);
     setValidation("");
     setValidationMessage("");
     if (validation === "error") {
@@ -39,6 +38,17 @@ const InputString = forwardRef<HTMLInputElement>(function (
     } else {
       setValidation("valid");
       setValidationMessage("✔");
+    }
+
+    //TODO - FIX PASSWORD VALIDATION + CREATE EMAIL VALIDATION
+
+    if (type === "password") {
+      const upper = /^[A-Z]+$/.test(userInput);
+      const lower = /^[a-z]+$/.test(userInput);
+      const numbers = /^[0-9]+$/.test(userInput);
+
+      const valid = upper && lower && numbers;
+      console.log(valid);
     }
   };
 

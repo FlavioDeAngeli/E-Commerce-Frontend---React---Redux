@@ -18,10 +18,10 @@ function SigninForm() {
 
   const handleClick = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const firstname = firstnameRef.current.value;
-    const lastname = lastnameRef.current.value;
-    const email = emailRef.current.value;
-    const password = passwordRef.current.value;
+    const firstname: string = firstnameRef.current.value;
+    const lastname: string = lastnameRef.current.value;
+    const email: string = emailRef.current.value;
+    const password: string = passwordRef.current.value;
     const user = await fetchAddUser({
       firstname,
       lastname,
