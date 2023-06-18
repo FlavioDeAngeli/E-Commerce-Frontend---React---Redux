@@ -5,7 +5,6 @@ import ModalCarousel from "../ModalCarousel";
 
 function ProductModal(props) {
   const product = useSelector((state) => state.modal.modalProduct);
-  console.log(product);
 
   return (
     <Modal size="md" centered {...props}>
