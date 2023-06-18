@@ -4,7 +4,7 @@ import { Card } from "react-bootstrap";
 function HelperCard({ message }) {
   return (
     <Card
-      className="HelperCard text-center col-3 m-3"
+      className="HelperCard text-center col-8 col-md-3 m-3"
       style={{ height: "100%" }}
       border="success"
     >

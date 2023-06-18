@@ -21,7 +21,6 @@ const InputString = (props: InputStringProps) => {
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   useEffect(() => {
-    console.log(inputValue);
     handleChange(inputValue);
   }, [inputValue, handleChange]);
 

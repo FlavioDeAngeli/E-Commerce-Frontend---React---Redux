@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Card, Form, Button, Nav } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
@@ -47,7 +47,7 @@ function LoginForm() {
   };
 
   return (
-    <Card className="LoginForm col-4 m-3" border="primary">
+    <Card className="LoginForm col-10 col-md-4 m-3" border="primary">
       <Form className="m-4" onSubmit={handleSubmit}>
         <Card.Title className="text-center mb-4">Login</Card.Title>
         {/* {error && <div className="error-message">{error}</div>} */}
