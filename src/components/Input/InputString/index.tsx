@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 // import { forwardRef } from "react";
 import { Form } from "react-bootstrap";
 import { InputStringProps } from "./index.types";
@@ -8,16 +8,22 @@ import "./style.css";
 //   props: InputStringProps,
 //   ref
 // ) {
-//   const { id, type, placeholder, min, max } = props;
 
 const InputString = (props: InputStringProps) => {
   const ref = useRef<HTMLInputElement>(null);
 
-  const { id, type, placeholder, min, max } = props;
+  const [inputValue, setInputValue] = useState<string>("");
+
+  const { id, type, placeholder, min, max, handleChange } = props;
 
   const [validation, setValidation] = useState<string>("");
   const [validationMessage, setValidationMessage] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
+
+  useEffect(() => {
+    console.log(inputValue);
+    handleChange(inputValue);
+  }, [inputValue, handleChange]);
 
   const handleOnFocus = () => {
     setValidation("");
@@ -44,18 +50,19 @@ const InputString = (props: InputStringProps) => {
       setValidation("valid");
       setValidationMessage("✔");
     }
-
-    //TODO - FIX PASSWORD VALIDATION + CREATE EMAIL VALIDATION
-
-    if (type === "password") {
-      const upper = /^[A-Z]+$/.test(userInput);
-      const lower = /^[a-z]+$/.test(userInput);
-      const numbers = /^[0-9]+$/.test(userInput);
-
-      const valid = upper && lower && numbers;
-      console.log(valid);
-    }
   };
+
+  //   //TODO - FIX PASSWORD VALIDATION + CREATE EMAIL VALIDATION
+
+  //   if (type === "password") {
+  //     const upper = /^[A-Z]+$/.test(userInput);
+  //     const lower = /^[a-z]+$/.test(userInput);
+  //     const numbers = /^[0-9]+$/.test(userInput);
+
+  //     const valid = upper && lower && numbers;
+  //     console.log(valid);
+  //   }
+  // };
 
   return (
     <>
@@ -71,6 +78,7 @@ const InputString = (props: InputStringProps) => {
           ref={ref}
           onBlur={() => handleOnBlur()}
           onFocus={() => handleOnFocus()}
+          onChange={(e) => setInputValue(e.currentTarget.value)}
         />
         <div
           className={

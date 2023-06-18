@@ -9,9 +9,11 @@ import InputString from "../Input/InputString/index.tsx";
 import "./style.css";
 
 function LoginForm() {
+  const [password, setPassword] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
   // const [error, setError] = useState<string>("");
-  const usernameRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
+  // const usernameRef = useRef<HTMLInputElement>(null);
+  // const passwordRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -22,10 +24,14 @@ function LoginForm() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("submit", ref);
+    // console.log("submit");
+    // console.log(username);
+    // console.log(password);
 
-    const username = usernameRef.current?.value;
-    const password = passwordRef.current?.value;
+    // const username = usernameRef.current?.value;
+    // const password = passwordRef.current?.value;
+    // console.log(username);
+    // console.log(password);
     const user = await fetchAuth({ username, password });
     // console.log(username, password);
     // if (!username || typeof username !== "string" || username.length === 0) {
@@ -51,7 +57,8 @@ function LoginForm() {
           placeholder={"Enter your username"}
           min={3}
           max={50}
-          ref={usernameRef}
+          handleChange={setUsername}
+          // ref={hansd}
         />
         <InputString
           id={"password"}
@@ -59,7 +66,8 @@ function LoginForm() {
           placeholder={"Enter your password"}
           min={6}
           max={16}
-          ref={passwordRef}
+          handleChange={setPassword}
+          // ref={passwordRef}
         />
         <div className="d-grid mt-4">
           <Button type="submit" variant="outline-primary">

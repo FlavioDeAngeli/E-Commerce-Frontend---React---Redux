@@ -1,5 +1,5 @@
-import { useRef } from "react";
 import React from "react";
+import { useState, useRef } from "react";
 import { Card, Form, Nav, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
@@ -9,19 +9,24 @@ import { HandleLogin } from "../../dispatch/userDispatch";
 import InputString from "../Input/InputString/index.tsx";
 
 function SigninForm() {
-  const firstnameRef = useRef<HTMLInputElement>(null);
-  const lastnameRef = useRef<HTMLInputElement>(null);
-  const emailRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
+  const [firstname, setFirstname] = useState<string>("");
+  const [lastname, setLastname] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+  // const firstnameRef = useRef<HTMLInputElement>(null);
+  // const lastnameRef = useRef<HTMLInputElement>(null);
+  // const emailRef = useRef<HTMLInputElement>(null);
+  // const passwordRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleClick = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const firstname: string = firstnameRef.current.value;
-    const lastname: string = lastnameRef.current.value;
-    const email: string = emailRef.current.value;
-    const password: string = passwordRef.current.value;
+    // const firstname: string = firstnameRef.current.value;
+    // const lastname: string = lastnameRef.current.value;
+    // const email: string = emailRef.current.value;
+    // const password: string = passwordRef.current.value;
     const user = await fetchAddUser({
       firstname,
       lastname,
@@ -36,28 +41,31 @@ function SigninForm() {
 
   return (
     <Card className="LoginForm col-4 m-3" border="primary">
-      <Form className="m-4">
+      <Form className="m-4" onSubmit={handleSubmit}>
         <Card.Title className="text-center mb-4">Signin</Card.Title>
         <InputString
           id={"firstname"}
           type="text"
           placeholder={"Enter your firstname"}
+          min={1}
           max={50}
-          ref={firstnameRef}
+          handleChange={setFirstname}
         />
         <InputString
           id={"lastname"}
           type="text"
           placeholder={"Enter your lastname"}
+          min={1}
           max={50}
-          ref={lastnameRef}
+          handleChange={setLastname}
         />
         <InputString
           id={"email"}
           type="email"
           placeholder={"Enter your email"}
           min={6}
-          ref={emailRef}
+          max={50}
+          handleChange={setEmail}
         />
         <InputString
           id={"password"}
@@ -65,10 +73,10 @@ function SigninForm() {
           placeholder={"Enter your password"}
           min={6}
           max={50}
-          ref={passwordRef}
+          handleChange={setPassword}
         />
         <div className="d-grid mt-4">
-          <Button variant="outline-primary" onClick={handleClick}>
+          <Button type="submit" variant="outline-primary">
             Signin
           </Button>
         </div>
