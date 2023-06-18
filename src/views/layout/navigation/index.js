@@ -1,5 +1,6 @@
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { NavDropdown } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { ClearProducts } from "../../../dispatch/cartDispatch";
@@ -38,12 +39,31 @@ function Navigation() {
           </Nav.Link>
           {loggedIn ? (
             <>
-              <Nav.Link onClick={(e) => handleClick(e)} href="/">
+              {/* <Nav.Link onClick={(e) => handleClick(e)} href="/">
                 Logout
-              </Nav.Link>
-              <Nav.Link className="active ms-4">
-                {user.firstName}
-                <AiOutlineUser className="user-icon ms-2" />
+              </Nav.Link> */}
+              <Nav.Link className="user active ms-4 pt-0">
+                {/* {user.firstName} */}
+                {/* <Navbar.Collapse id="navbar-dark-example"> */}
+                {/* <Nav> */}
+                <AiOutlineUser className="user-icon ms-2 mt-2" />
+                <NavDropdown
+                  id="nav-dropdown-dark-example"
+                  title={user.firstName}
+                  menuVariant="dark"
+                >
+                  <NavDropdown.Item href="#action/3.1">
+                    <Nav.Link
+                      className=""
+                      onClick={(e) => handleClick(e)}
+                      href="/"
+                    >
+                      Logout
+                    </Nav.Link>
+                  </NavDropdown.Item>
+                </NavDropdown>
+                {/* </Nav> */}
+                {/* </Navbar.Collapse> */}
               </Nav.Link>
             </>
           ) : (

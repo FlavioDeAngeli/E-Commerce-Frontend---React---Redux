@@ -5,6 +5,7 @@
 
 .user {
   color: #fff;
+  display: flex;
 }
 
 .user-icon,
@@ -12,4 +13,9 @@
   text-align: center;
   font-size: 1.5rem;
   padding-bottom: 0.2rem;
+}
+
+.logout {
+  color: #fff;
+  --bs-dropdown-min-width: 0px !important;
 }
