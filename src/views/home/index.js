@@ -10,7 +10,7 @@ import { Container } from "react-bootstrap";
 
 function Home({ skip, setSkip }) {
   const isMobile = useSelector((state) => state.ui.isMobile);
-  
+
   return (
     <div className="Home">
       <Navigation />

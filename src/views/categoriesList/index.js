@@ -5,6 +5,8 @@ import { Badge } from "react-bootstrap";
 import "./style.css";
 
 function CategoriesList() {
+  const isMobile = useSelector((state) => state.ui.isMobile);
+
   const categories = useSelector((state) => state.categories.categories);
   let navigate = useNavigate();
 
@@ -13,7 +15,7 @@ function CategoriesList() {
     navigate(`/categories/${category}`);
   }
 
-  return (
+  return !isMobile ? (
     <div className="CategoriesList d-flex flex-column ms-2 me-4">
       {categories.map((category) => {
         return (
@@ -27,6 +29,8 @@ function CategoriesList() {
         );
       })}
     </div>
+  ) : (
+    <div className="ms-4"></div>
   );
 }
 
