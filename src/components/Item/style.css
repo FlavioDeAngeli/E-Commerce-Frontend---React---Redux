@@ -12,8 +12,9 @@
 .description {
   /* max-width: 50%; */
   text-overflow: ellipsis; /* enables ellipsis */
-  white-space: nowrap; /* keeps the text in a single line */
-  overflow: hidden; /* keeps the element from overflowing its parent */
+  overflow: hidden; /*keeps the element from overflowing its parent */
+  /* white-space: nowrap; keeps the text in a single line, 
+  enabling this breaks responsiveness of the Item component */
 }
 
 .price {
