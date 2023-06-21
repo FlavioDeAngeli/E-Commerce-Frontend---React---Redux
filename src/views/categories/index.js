@@ -1,5 +1,6 @@
 import React from "react";
 import Navigation from "../layout/navigation";
+import NavigationMobile from "../layout/navigationMobile";
 import Footer from "../layout/footer";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
@@ -9,9 +10,8 @@ import "./style.css";
 
 function Categories() {
   const categories = useSelector((state) => state.categories.categories);
+  const isMobile = useSelector((state) => state.ui.isMobile);
   let navigate = useNavigate();
-
-  
 
   function handleClick(e, category) {
     e.preventDefault();
@@ -20,8 +20,8 @@ function Categories() {
 
   return (
     <div className="Categories">
-      <Navigation />
-      <Container fluid className="d-flex flex-wrap p-4">
+      {!isMobile ? <Navigation /> : <NavigationMobile />}
+      <Container fluid className="d-flex flex-wrap p-4 justify-content-center">
         {categories.map((category) => {
           return (
             <Card

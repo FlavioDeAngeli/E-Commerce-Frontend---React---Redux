@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { ClearProducts } from "../../../dispatch/cartDispatch";
 import { HandleLogout } from "../../../dispatch/userDispatch";
