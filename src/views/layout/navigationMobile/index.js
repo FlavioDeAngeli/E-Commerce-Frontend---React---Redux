@@ -32,52 +32,32 @@ function NavigationMobile() {
         expand="lg"
         variant="dark"
       >
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Brand className="ms-4" href="/">
           E-Commerce
         </Navbar.Brand>
-        <Nav className="ms-auto">
-          {loggedIn ? (
-            <>
-              {/* <Nav.Link onClick={(e) => handleClick(e)} href="/">
-                Logout
-              </Nav.Link> */}
-              <Nav.Link className="user active ms-4 pt-0">
-                {/* {user.firstName} */}
-                {/* <Navbar.Collapse id="navbar-dark-example"> */}
-                {/* <Nav> */}
-                <AiOutlineUser className="user-icon ms-2 mt-2" />
-                <NavDropdown
-                  id="nav-dropdown-dark-example"
-                  title={user.firstName}
-                  menuVariant="dark"
-                >
-                  <NavDropdown.Item href="#action/3.1">
-                    <Nav.Link
-                      className=""
-                      onClick={(e) => handleClick(e)}
-                      href="/"
-                    >
-                      Logout
-                    </Nav.Link>
-                  </NavDropdown.Item>
-                </NavDropdown>
-                {/* </Nav> */}
-                {/* </Navbar.Collapse> */}
-              </Nav.Link>
-            </>
-          ) : (
-            <Nav.Link href="/login">Login </Nav.Link>
-          )}
+        <Nav className="ms-auto user pt-2">
+          <AiOutlineUser className="user-icon me-1 mt-2" />
+          <Nav.Link className="active">{user.firstName}</Nav.Link>
+          <Nav.Link className="active" href="/cart">
+            <BsCart2 className="cart-icon ms-3 mb-1" />
+            {cartQuantity > 0 && cartQuantity}
+          </Nav.Link>
         </Nav>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="/cart">
-              Cart <BsCart2 className="cart-icon" />
-              {cartQuantity > 0 && cartQuantity}
-            </Nav.Link>
+          <Nav>
             <Nav.Link href="/">Products</Nav.Link>
             <Nav.Link href="/categories">Categories</Nav.Link>
+            {loggedIn ? (
+              <Nav.Link className="user active pt-0">
+                <Nav.Link onClick={(e) => handleClick(e)} href="/">
+                  Logout
+                </Nav.Link>
+              </Nav.Link>
+            ) : (
+              <Nav.Link href="/login">Login </Nav.Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
