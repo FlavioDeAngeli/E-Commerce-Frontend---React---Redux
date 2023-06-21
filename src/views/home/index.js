@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Navigation from "../layout/navigation";
+import NavigationMobile from "../layout/navigationMobile";
 import Footer from "../layout/footer";
 import Products from "../../components/Products";
 import Skip from "../../components/Skip";
@@ -13,7 +14,7 @@ function Home({ skip, setSkip }) {
 
   return (
     <div className="Home">
-      <Navigation />
+      {!isMobile ? <Navigation /> : <NavigationMobile />}
       <Searchbar />
       <Container fluid className="mainContent d-flex">
         <CategoriesList />
