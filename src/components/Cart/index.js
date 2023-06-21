@@ -36,7 +36,7 @@ function Cart() {
         </h3>
       </div>
 
-      <ListGroup className="m-4 ps-2">
+      <ListGroup className="col-12 m-4 ps-2">
         {products.map((product) => {
           return (
             <div key={product.id} className="itemBox d-inline-flex me-5 mb-2">
@@ -70,7 +70,7 @@ function Cart() {
       {products.length > 0 ? (
         <Container fluid className="d-flex flex-row-reverse me-5 mt-4 pe-4">
           <Button
-            className="trash-button me-5"
+            className="trash-button"
             variant="danger"
             onClick={(e) => ClearProducts(e, dispatch)}
           >
