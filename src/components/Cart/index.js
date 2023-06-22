@@ -31,15 +31,18 @@ function Cart() {
   return (
     <>
       <div className="d-flex  align-items-center">
-        <h3 className="mt-3 ms-3 ps-2">
+        <h3 className="mt-3 ms-3 p-2">
           Esegui il checkout oppure acquista altri prodotti:
         </h3>
       </div>
 
-      <ListGroup className="col-12 m-4 ps-2">
+      <ListGroup className="col-12 ps-2 pt-2">
         {products.map((product) => {
           return (
-            <div key={product.id} className="itemBox d-inline-flex me-5 mb-2">
+            <div
+              key={product.id}
+              className="itemBox d-inline-flex ms-4 me-4 mb-2"
+            >
               <Item product={product} setModalShow={setModalShow}></Item>
               <Badge className="quantity-badge d-flex align-items-center p-4 me-2">
                 {product.quantity}
