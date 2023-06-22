@@ -50,10 +50,8 @@ function NavigationMobile() {
             <Nav.Link href="/">Products</Nav.Link>
             <Nav.Link href="/categories">Categories</Nav.Link>
             {loggedIn ? (
-              <Nav.Link className="user active pt-0">
-                <Nav.Link onClick={(e) => handleClick(e)} href="/">
-                  Logout
-                </Nav.Link>
+              <Nav.Link onClick={(e) => handleClick(e)} href="/">
+                Logout
               </Nav.Link>
             ) : (
               <Nav.Link href="/login">Login </Nav.Link>

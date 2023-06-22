@@ -29,18 +29,16 @@ function Cart() {
     total = total + product.price * product.quantity;
   });
 
-  console.log(products);
-
   return (
     <>
       {products.length ? (
         <div className="d-flex  align-items-center">
-          <h3 className="mt-3 ms-3 p-2">
+          <h3 className="mt-3 ms-4 ">
             Esegui il checkout oppure acquista altri prodotti:
           </h3>
         </div>
       ) : (
-        <h3 className="mt-3 ms-3 p-2">
+        <h3 className="mt-3 ms-4 ">
           Carrello vuoto. Continua i tuoi acquisti!
         </h3>
       )}

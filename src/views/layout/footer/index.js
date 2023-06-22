@@ -9,7 +9,6 @@ function Footer() {
   //UI settings (mobile or desktop) ----------------------------------------------------------------
   const dispatch = useDispatch();
   const getIsMobile = () => window.innerWidth <= MOBILE_UI;
-  console.log("getismobile");
 
   const [width, setWidth] = useState(window.innerWidth);
   const [isMobile, setIsMobile] = useState(getIsMobile());

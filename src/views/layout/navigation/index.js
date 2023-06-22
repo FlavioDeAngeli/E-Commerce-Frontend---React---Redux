@@ -38,24 +38,18 @@ function Navigation() {
             {cartQuantity > 0 && cartQuantity}
           </Nav.Link>
           {loggedIn ? (
-            <Nav.Link className="user active ms-4 pt-0">
-              <AiOutlineUser className="user-icon ms-2 mt-2" />
+            <>
+              <AiOutlineUser className="active user-icon mt-2 ms-5 pt-0" />
               <NavDropdown
                 id="nav-dropdown-dark-example"
                 title={user.firstName}
                 menuVariant="dark"
               >
-                <NavDropdown.Item href="#action/3.1">
-                  <Nav.Link
-                    className=""
-                    onClick={(e) => handleClick(e)}
-                    href="/"
-                  >
-                    Logout
-                  </Nav.Link>
+                <NavDropdown.Item href="/">
+                  <div onClick={(e) => handleClick(e)}>Logout</div>
                 </NavDropdown.Item>
               </NavDropdown>
-            </Nav.Link>
+            </>
           ) : (
             <Nav.Link href="/login">Login </Nav.Link>
           )}
