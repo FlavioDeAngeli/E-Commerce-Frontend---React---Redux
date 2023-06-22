@@ -14,6 +14,7 @@ import {
 import "./style.css";
 
 function Cart() {
+  const isMobile = useSelector((state) => state.ui.isMobile);
   const products = useSelector((state) => state.cart.cart);
   const [modalShow, setModalShow] = useState(false);
   const dispatch = useDispatch();
@@ -28,13 +29,21 @@ function Cart() {
     total = total + product.price * product.quantity;
   });
 
+  console.log(products);
+
   return (
     <>
-      <div className="d-flex  align-items-center">
+      {products.length ? (
+        <div className="d-flex  align-items-center">
+          <h3 className="mt-3 ms-3 p-2">
+            Esegui il checkout oppure acquista altri prodotti:
+          </h3>
+        </div>
+      ) : (
         <h3 className="mt-3 ms-3 p-2">
-          Esegui il checkout oppure acquista altri prodotti:
+          Carrello vuoto. Continua i tuoi acquisti!
         </h3>
-      </div>
+      )}
 
       <ListGroup className="col-12 ps-2 pt-2">
         {products.map((product) => {
@@ -44,7 +53,11 @@ function Cart() {
               className="itemBox d-inline-flex ms-4 me-4 mb-2"
             >
               <Item product={product} setModalShow={setModalShow}></Item>
-              <Badge className="quantity-badge d-flex align-items-center p-4 me-2">
+              <Badge
+                className={`quantity-badge d-flex align-items-center ${
+                  !isMobile && "p-4"
+                } me-2`}
+              >
                 {product.quantity}
               </Badge>
               <Button

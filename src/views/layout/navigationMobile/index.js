@@ -34,7 +34,7 @@ function NavigationMobile() {
       >
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Brand className="ms-4" href="/">
-          E-Commerce
+          E-Shop
         </Navbar.Brand>
         <Nav className="ms-auto user pt-2">
           <AiOutlineUser className="user-icon me-1 mt-2" />

@@ -23,7 +23,7 @@ function Item({ product, setModalShow }) {
         }}
         className="Item row d-flex me-3 p-0"
       >
-        <div className={!isMobile ? "col-11" : "col-9"}>
+        <div className={!isMobile ? "col-11" : "col-8"}>
           <div className="title p-2">{product.title}</div>
           {!isMobile && (
             <div className="description ps-2 pb-2 ">{product.description}</div>
@@ -31,7 +31,7 @@ function Item({ product, setModalShow }) {
         </div>
         <div
           className={`price d-flex justify-content-center align-items-center ${
-            !isMobile ? "col-1" : "col-3"
+            !isMobile ? "col-1" : "col-4"
           }`}
         >
           {product.price} $
