@@ -9,14 +9,20 @@ const fetchAuth = async ({ username, password }) => {
     username: username,
     password: password,
   });
-  
-  const fetchedData = await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: body,
-  });
-  const data = await fetchedData.json();
-  return data;
+
+  try {
+    const fetchedData = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: body,
+    });
+    const data = await fetchedData.json();
+    return data;
+  } catch (error) {
+    console.log("Invalid credentials");
+  }
 };
 
 export default fetchAuth;
+
+//TODO - catch invalid credential response error (400)
