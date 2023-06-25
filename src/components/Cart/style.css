@@ -25,3 +25,9 @@
   font-size: large;
   font-weight: 500;
 }
+
+.checkoutBtn {
+  margin: auto;
+  margin-top: 4rem;
+  width: 50vw;
+}

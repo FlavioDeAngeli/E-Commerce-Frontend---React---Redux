@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { ListGroup, Button, Badge, Container } from "react-bootstrap";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import Item from "../Item/index";
 import ProductModal from "../ProductModal";
 import { BsCartPlus, BsCartDash, BsTrash3 } from "react-icons/bs";
@@ -28,6 +29,34 @@ function Cart() {
   products.forEach((product) => {
     total = total + product.price * product.quantity;
   });
+
+  //PayPal Payment section ----------------------------------------------------------------
+  const initialOptions = {
+    clientId: "test",
+    currency: "USD",
+    intent: "capture",
+  };
+
+  const createOrder = (data, actions) => {
+    return actions.order.create({
+      purchase_units: [
+        {
+          amount: {
+            value: total.toString(),
+          },
+        },
+      ],
+    });
+  };
+
+  const onApprove = (data, actions) => {
+    return actions.order.capture().then((details) => {
+      const name = details.payer.name.given_name;
+      alert(`Transazione completata! Grazie per i tuoi acquisti ${name}.`);
+    });
+  };
+
+  // --------------------------------------------------------------------------------------
 
   return (
     <>
@@ -82,18 +111,33 @@ function Cart() {
         })}
       </ListGroup>
       {products.length > 0 ? (
-        <Container fluid className="d-flex flex-row-reverse me-5 mt-4 pe-4">
-          <Button
-            className="trash-button"
-            variant="danger"
-            onClick={(e) => ClearProducts(e, dispatch)}
-          >
-            <BsTrash3 />
-          </Button>
-          <Badge className="total d-flex align-items-center p-4 me-2">
-            Total: {total}${" "}
-          </Badge>
-        </Container>
+        <>
+          <Container fluid className="d-flex flex-row-reverse me-5 mt-4 pe-4">
+            <Button
+              className="trash-button"
+              variant="danger"
+              onClick={(e) => ClearProducts(e, dispatch)}
+            >
+              <BsTrash3 />
+            </Button>
+            <Badge className="total d-flex align-items-center p-4 me-2">
+              Total: {total}${" "}
+            </Badge>
+          </Container>
+
+          <PayPalScriptProvider options={initialOptions}>
+            <PayPalButtons
+              className="checkoutBtn"
+              style={{
+                layout: "horizontal",
+                color: "black",
+                label: "checkout",
+              }}
+              createOrder={createOrder}
+              onApprove={onApprove}
+            />
+          </PayPalScriptProvider>
+        </>
       ) : null}
       <ProductModal show={modalShow} onHide={() => setModalShow(false)} />
     </>
